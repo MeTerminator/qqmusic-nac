@@ -1,0 +1,11 @@
+node_modules/
+dist/
+build/
+.venv-web/
+public/vendor/
+public/models/
+package-lock.json
+tests/fixtures/*.nac
+tests/fixtures/*.wav
+pnpm-lock.yaml
+artifacts/

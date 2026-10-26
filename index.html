@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#f5f5f5" />
+    <title>NAC 音乐播放器</title>
+  </head>
+  <body>
+    <main class="player" aria-label="NAC 音乐播放器">
+      <div class="dropzone" id="dropzone">
+        <button id="choose" type="button">
+          <strong>选择音乐文件</strong>
+          <span>或将 NAC 文件拖到这里</span>
+        </button>
+        <input id="file" type="file" accept=".nac" hidden />
+      </div>
+
+      <section class="track" aria-label="音乐信息">
+        <h1 id="track">尚未选择音乐</h1>
+        <p id="detail">支持 NAC 格式</p>
+      </section>
+
+      <div class="decoding" id="decoding" hidden>
+        <div class="status-row">
+          <span id="status" role="status" aria-live="polite"></span>
+          <span id="percent"></span>
+          <button id="cancel" type="button" hidden>取消</button>
+        </div>
+        <progress id="progress" max="1" value="0" aria-label="解码进度"></progress>
+      </div>
+
+      <div class="audio-controls" role="group" aria-label="音乐播放器">
+        <div class="playback-row">
+          <button id="play" type="button" disabled>播放</button>
+          <input
+            id="seek"
+            type="range"
+            min="0"
+            max="0"
+            step="0.01"
+            value="0"
+            aria-label="音乐进度"
+            disabled
+          />
+        </div>
+        <div class="playback-details">
+          <span id="time">0:00 / 0:00</span>
+          <label
+            >音量
+            <input id="volume" type="range" min="0" max="1" step="0.01" value="1" aria-label="音量"
+          /></label>
+        </div>
+      </div>
+      <button id="download" type="button" disabled>下载 WAV</button>
+    </main>
+    <script type="module" src="/src/app.ts"></script>
+  </body>
+</html>
